@@ -17,11 +17,3 @@ tree  ;; => (1 (2 (3 4)))
 ;;          3     4
 
 ;; box-and-pointer is too much hassle in ascii, even with artist-mode.
-
-;; (defn tree-map [f tree]
-;;   (if (list? tree)
-;;     (map (fn [subtree]
-;;            (if (list? subtree)
-;;              (tree-map f subtree)
-;;              (f subtree)))
-;;          tree)))
