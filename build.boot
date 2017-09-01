@@ -8,7 +8,8 @@
                             [org.clojure/math.numeric-tower "0.0.4"]
                             [thi.ng/geom "0.0.908"]
                             [org.clojure/test.check "0.9.0"]
-                            [org.clojure/algo.generic "0.1.2"]])
+                            [org.clojure/algo.generic "0.1.2"]
+                            [quil "2.6.0"]])
 
 (task-options!
  pom {:project     project
