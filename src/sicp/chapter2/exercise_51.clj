@@ -1,7 +1,7 @@
 (ns sicp.chapter2.exercise-51
   (:require [sicp.chapter2.exercise-50 :as e50]
             [sicp.woodcut.drawing :refer [draw]]
-            [sicp.woodcut.painters :refer [george pika]]
+            [sicp.woodcut.painters :refer [george]]
             [sicp.woodcut.vecs :as vecs]))
 
 (defn below [p1 p2]
