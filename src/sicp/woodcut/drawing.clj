@@ -32,6 +32,11 @@
 (defn close-sketch [state]
   (reset! sketch nil))
 
+(defn handle-keys [state {key :key}]
+  (when (= key :s)  ; save the painter into a file
+    (q/save "painter.png"))
+  state)
+
 (defn new-sketch [painter opts]
   (let [original-out *out*]
     (reset! sketch
@@ -40,6 +45,7 @@
              :quil-skt (q/defsketch woodcut
                          :draw draw-painter
                          :on-close close-sketch
+                         :key-pressed handle-keys
                          :middleware [m/fun-mode]
                          :title (:title opts)
                          :size (:size opts))})))
