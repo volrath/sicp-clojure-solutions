@@ -12,6 +12,8 @@
     (YIP 9)
     (WAH 1)))
 
+;; Listen to the song: https://www.youtube.com/watch?v=ofEdoggWr-s
+
 (def message '(GET A JOB
                    SHA NA NA NA NA NA NA NA NA
                    GET A JOB
