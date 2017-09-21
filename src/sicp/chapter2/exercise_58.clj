@@ -8,15 +8,18 @@
   (and (seq? e)
        (>= (count e) 3)
        ;; (every? #(= % '+) (take-nth 2 (rest e)))
-       (= (second e) '+)))
+       (some #(= % '+) (take-nth 2 (rest e)))))
 
 (defn addend [e]
   {:pre [(sum? e)]}
-  (first e))
+  (let [ad (take-while #(not= % '+) e)]
+    (if (= (count ad) 1)
+      (first ad)
+      ad)))
 
 (defn augend [e]
   {:pre [(sum? e)]}
-  (let [as (drop 2 e)]
+  (let [as (rest (drop-while #(not= % '+) e))]
     (if (= (count as) 1)
       (first as)
       as)))
@@ -73,6 +76,10 @@
                                            (multiplicand exp)))
         :else               (throw (Exception. (format "unknown expression type -- DERIV %s" exp)))))
 
-(assert (= (deriv-infix '(x + (3 * (x + (y + 2)))) 'x)
-           (deriv-infix '(x + 3 * (x + y + 2)) 'x)
-           4))
+(assert (and
+         (= (deriv-infix '(x + (3 * (x + (y + 2)))) 'x)
+            (deriv-infix '(x + 3 * (x + y + 2)) 'x)
+            4)
+         (= (deriv-infix '((x * x) + x) 'x)
+            (deriv-infix '(x * x + x) 'x)
+            '((x + x) + 1))))
