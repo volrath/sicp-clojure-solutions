@@ -171,7 +171,7 @@
                 (fn [z1 z2] (tag (mul-complex z1 z2))))
         (dd-put 'div '(complex complex)
                 (fn [z1 z2] (tag (div-complex z1 z2))))
-        (dd-put 'make-from-real-img 'complex
+        (dd-put 'make-from-real-imag 'complex
                 (fn [x y] (tag (make-from-real-imag x y))))
         (dd-put 'make-from-mag-ang 'complex
                 (fn [r a] (tag (make-from-mag-ang r a)))))))
