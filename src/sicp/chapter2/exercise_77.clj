@@ -54,7 +54,9 @@
         (dd-put 'mul '(scheme-number scheme-number)
                 (fn [x y] (tag (* x y))))
         (dd-put 'div '(scheme-number scheme-number)
-                (fn [x y] (tag (/ x y)))))))
+                (fn [x y] (tag (/ x y))))
+        (dd-put 'make 'scheme-number
+                (fn [x] (tag x))))))
 
 (defn install-rational-package [dd-table]
   (let [numer    (fn [x] (first x))
